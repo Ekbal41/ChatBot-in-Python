@@ -11,23 +11,27 @@ asfiya = ChatBot(
     'train',
     storage_adapter='chatterbot.storage.SQLStorageAdapter',
     logic_adapters=[
-        {
-            'import_path': 'chatterbot.logic.BestMatch',
+        
+            'chatterbot.logic.BestMatch',
+            'chatterbot.logic.MathematicalEvaluation',
+            'chatterbot.logic.TimeLogicAdapter',
             
            # 'default_response': 'I am sorry, but I do not understand.',
            # 'maximum_similarity_threshold': 0.90
-
-           
-        }
-    ],
+    
+                  ],
+    preprocessors=['chatterbot.preprocessors.clean_whitespace',
+                   'chatterbot.preprocessors.unescape_html',                          
+                   'chatterbot.preprocessors.convert_to_ascii'
+                   ],
     database_uri='sqlite:///database-chatbot.db'
 )
 
 trainer = ChatterBotCorpusTrainer(asfiya)
 trainer = ChatterBotCorpusTrainer(asfiya, show_training_progress=False)
-#trainer.train("chatterbot.corpus.english")
-#trainer.train("chatterbot.corpus.english.greetings")
-#trainer.train("chatterbot.corpus.english.conversations")
+trainer.train("chatterbot.corpus.english")
+trainer.train("chatterbot.corpus.english.greetings")
+trainer.train("chatterbot.corpus.english.conversations")
 
 
  
