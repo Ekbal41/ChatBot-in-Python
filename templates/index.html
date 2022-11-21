@@ -7,11 +7,11 @@
            body
 {
 font-family: Garamond;
-background-color: black;
+background-color: rgb(255, 255, 255);
 }
 h1
 {
-color: black;
+color: rgb(255, 255, 255);
 margin-bottom: 0;
 margin-top: 0;
 text-align: center;
@@ -19,18 +19,19 @@ font-size: 40px;
 }
 h3
 {
-color: black;
+color: rgb(255, 255, 255);
 font-size: 20px;
 margin-top: 3px;
 text-align: center;
 }
 #chatbox
 {
-background-color: black;
+background-color: rgb(255, 255, 255);
 margin-left: auto;
 margin-right: auto;
 width: 40%;
 margin-top: 60px;
+
 }
 #userInput {
 margin-left: auto;
@@ -39,17 +40,32 @@ width: 40%;
 margin-top: 60px;
 }
 #textInput {
-width: 87%;
+width: 96%;
 border: none;
-border-bottom: 3px solid #009688;
+border: 3px solid #36EEE0;
+padding: 7px;
 font-family: monospace;
 font-size: 17px;
+border-radius: 10px;
+margin-right: 33px;
 }
+
+#textInput:focus {
+  outline: none;
+}
+
 #buttonInput {
-padding: 3px;
+padding: 10px;
 font-family: monospace;
 font-size: 17px;
+color: white;
+background-color:#F652A0;
+border: none;
+width: 80px;
+border-radius: 7px;
+
 }
+
 .userText {
 color: white;
 font-family: monospace;
@@ -58,9 +74,9 @@ text-align: right;
 line-height: 30px;
 }
 .userText span {
-background-color: #009688;
+background-color: #36EEE0;
 padding: 10px;
-border-radius: 2px;
+border-radius: 10px;
 }
 .botText {
 color: white;
@@ -70,9 +86,9 @@ text-align: left;
 line-height: 30px;
 }
 .botText span {
-background-color: #EF5350;
+background-color: #F652A0;
 padding: 10px;
-border-radius: 2px;
+border-radius: 10px;
 }
 #tidbit {
 position:absolute;
@@ -81,17 +97,17 @@ right:0;
 width: 300px;
 }
 
+
        </style>
    </head>
    <body>
-      <h1>ChatBot</h1>
-      <div>
+      
          <div id="chatbox">
             <p class="botText"><span>Hi! I'm Asfiya.</span></p>
          </div>
          <div id="userInput">
-            <input id="textInput" type="text" name="msg" placeholder="Message">
-            <input id="buttonInput" type="submit" value="Send">
+            <input id="textInput" type="text" name="msg" placeholder="Write to Asfiya..">
+           <!-- <input id="buttonInput" type="submit"  value="Send">-->
          </div>
          <script>
             function getBotResponse() {
@@ -116,5 +132,7 @@ width: 300px;
             })
          </script>
       </div>
+
    </body>
 </html>
+

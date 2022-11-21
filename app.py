@@ -13,18 +13,24 @@ asfiya = ChatBot(
     logic_adapters=[
         {
             'import_path': 'chatterbot.logic.BestMatch',
-            'default_response': 'I am sorry, but I do not understand.',
-            'maximum_similarity_threshold': 0.90
+            
+           # 'default_response': 'I am sorry, but I do not understand.',
+           # 'maximum_similarity_threshold': 0.90
+
+           
         }
     ],
     database_uri='sqlite:///database-chatbot.db'
 )
 
 trainer = ChatterBotCorpusTrainer(asfiya)
-trainer.train("chatterbot.corpus.english")
-trainer.train("chatterbot.corpus.english.greetings")
-trainer.train("chatterbot.corpus.english.conversations")
+trainer = ChatterBotCorpusTrainer(asfiya, show_training_progress=False)
+#trainer.train("chatterbot.corpus.english")
+#trainer.train("chatterbot.corpus.english.greetings")
+#trainer.train("chatterbot.corpus.english.conversations")
 
+
+ 
 
 @app.route("/")
 def home():
